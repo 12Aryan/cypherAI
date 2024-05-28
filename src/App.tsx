@@ -1,10 +1,10 @@
-import { Button, Flex } from "@chakra-ui/react";
-import React from "react";
+import { Flex } from "@chakra-ui/react";
+import Sidebar from "./components/sidebar/Sidebar.js";
 
 const App = () => {
   return (
     <Flex backgroundColor="">
-      <Button>Click me</Button>
+      <Sidebar />
     </Flex>
   );
 };
