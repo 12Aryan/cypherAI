@@ -1,10 +1,12 @@
 import { Flex } from "@chakra-ui/react";
-import Sidebar from "./components/sidebar/Sidebar.js";
+import Sidebar from "./components/common/sidebar/Sidebar.js";
+import Main from "./components/main/Main.js";
 
 const App = () => {
   return (
-    <Flex backgroundColor="">
+    <Flex>
       <Sidebar />
+      <Main />
     </Flex>
   );
 };

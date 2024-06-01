@@ -1,0 +1,23 @@
+import { Flex } from "@chakra-ui/react";
+import Navbar from "../common/navbar/Navbar";
+import ChatContainer from "../specific/chat-container/ChatContainer";
+
+const Main = () => {
+  return (
+    <>
+      <Flex
+        className="main"
+        flex={1}
+        minH={"100vh"}
+        pb={"15vh"}
+        position={"relative"}
+        direction={"column"}
+      >
+        <Navbar />
+        <ChatContainer />
+      </Flex>
+    </>
+  );
+};
+
+export default Main;
