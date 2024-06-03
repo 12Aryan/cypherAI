@@ -2,6 +2,7 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import Card from "../../common/card/Card";
 import { color } from "framer-motion";
+import InputBox from "../input-box/InputBox";
 
 const ChatContainer = () => {
   return (
@@ -24,8 +25,9 @@ const ChatContainer = () => {
         <Text>How can i assist you today?</Text>
       </Flex>
       <Box className="cards">
-        <Card   />
+        <Card />
       </Box>
+      <InputBox />
     </Flex>
   );
 };

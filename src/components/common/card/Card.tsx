@@ -19,6 +19,7 @@ const Card = () => {
             cursor={"pointer"}
             // border={"1px solid red"}
             direction={"column"}
+            _hover={{ bg: "#dfe4ea" }}
           >
             <Text>{chatCard?.title}</Text>
             <Flex align={"center"} width={"100%"} justify={"center"}>
