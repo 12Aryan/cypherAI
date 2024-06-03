@@ -3,6 +3,7 @@ import Card from "../../common/card/Card";
 import InputBox from "../input-box/InputBox";
 import {
   getAIResponse,
+  getLoading,
   getRecentPrompt,
   getShowResult,
 } from "../../../redux/ChatWithAISlice";
@@ -13,7 +14,7 @@ const ChatContainer = () => {
   const aiResponse: string | null = useSelector(getAIResponse);
   const showResult: boolean = useSelector(getShowResult);
   const recentPrompt: string = useSelector(getRecentPrompt);
-  console.log(aiResponse);
+  const loading: boolean = useSelector(getLoading);
   return (
     <Flex
       className="chat-container"
@@ -42,14 +43,44 @@ const ChatContainer = () => {
           </Box>
         </>
       ) : (
-        <Flex className="result" direction={"column"} w={"100%"}>
-          <Flex className="result-title">
-            <Image w={"25px"} src={assets.user_icon} />
+        <Flex
+          className="result"
+          p={"0px 5%"}
+          maxH={"70vh"}
+          overflowY={"scroll"}
+          direction={"column"}
+          w={"100%"}
+        >
+          <Flex
+            className="result-title"
+            m={"40px 0px"}
+            align={"center"}
+            gap={"20px"}
+          >
+            <Image w={"40px"} borderRadius={"50%"} src={assets.user_icon} />
             <Text>{recentPrompt}</Text>
           </Flex>
-          <Flex className="result-data">
-            <Image w={"25px"} h={"25px"} src={assets.gemini_icon} />
-            <Text dangerouslySetInnerHTML={{ __html: aiResponse || "" }}></Text>
+          <Flex className="result-data" align={"start"} gap={"20px"}>
+            <Image h={"25px"} w={"25px"} src={assets.gemini_icon} />
+            {loading ? (
+              <Flex
+                className="loader"
+                direction={"column"}
+                width={"100%"}
+                gap={"10px"}
+              >
+                <hr />
+                <hr />
+                <hr />
+              </Flex>
+            ) : (
+              <Text
+                fontSize={"17px"}
+                fontWeight={"300"}
+                lineHeight={1.8}
+                dangerouslySetInnerHTML={{ __html: aiResponse || "" }}
+              ></Text>
+            )}
           </Flex>
         </Flex>
       )}

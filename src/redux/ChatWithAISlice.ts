@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../main-store/store";
 import run from "../config/gemini";
+import { formatResponse } from "../utils/GlobalUtils";
 
 interface ChatWithAIType {
   aiResponse: string | null;
@@ -53,7 +54,9 @@ const chatWithAISlice = createSlice({
     builder.addCase(
       chatWithAI.fulfilled,
       (state: any, action: PayloadAction<string>) => {
-        state.aiResponse = action.payload;
+        console.log(action.payload);
+
+        state.aiResponse = formatResponse(action.payload);
         state.loading = false;
       }
     );
@@ -68,6 +71,7 @@ export const getShowResult = (state: RootState) =>
   state.ChatWithAISlice.showResult;
 export const getRecentPrompt = (state: RootState) =>
   state.ChatWithAISlice.recentPrompt;
+export const getLoading = (state: RootState) => state.ChatWithAISlice.loading;
 
 export const {
   setInputPrompt,
