@@ -5,15 +5,19 @@ import run from "../config/gemini";
 interface ChatWithAIType {
   aiResponse: string | null;
   inputPrompt: string;
+  recentPrompt: string;
   previousPrompts: Array<string>;
   loading: boolean;
+  showResult: boolean;
 }
 
 const initialState: ChatWithAIType = {
-  aiResponse: null,
   inputPrompt: "",
   previousPrompts: [],
+  recentPrompt: "",
+  aiResponse: null,
   loading: false,
+  showResult: false,
 };
 
 export const chatWithAI = createAsyncThunk(
@@ -30,6 +34,15 @@ const chatWithAISlice = createSlice({
   reducers: {
     setInputPrompt: (state: any, action: PayloadAction<string>) => {
       state.inputPrompt = action.payload;
+    },
+    emptyAIResponse: (state: any) => {
+      state.aiResponse = "";
+    },
+    setShowResult: (state: any, action) => {
+      state.showResult = action.payload;
+    },
+    setRecentPrompt: (state: any, action) => {
+      state.recentPrompt = action.payload;
     },
   },
   extraReducers: (builder: any) => {
@@ -51,7 +64,16 @@ export const getAIResponse = (state: RootState) =>
   state.ChatWithAISlice.aiResponse;
 export const getInputPrompt = (state: RootState) =>
   state.ChatWithAISlice.inputPrompt;
+export const getShowResult = (state: RootState) =>
+  state.ChatWithAISlice.showResult;
+export const getRecentPrompt = (state: RootState) =>
+  state.ChatWithAISlice.recentPrompt;
 
-export const { setInputPrompt } = chatWithAISlice.actions;
+export const {
+  setInputPrompt,
+  emptyAIResponse,
+  setShowResult,
+  setRecentPrompt,
+} = chatWithAISlice.actions;
 
 export default chatWithAISlice.reducer;
