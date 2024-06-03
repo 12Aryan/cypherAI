@@ -7,6 +7,7 @@ export const formatResponse = (response: string): string => {
   );
   formatted = formatted.replace(/^\* (.*)$/gm, "<li>$1</li>");
   formatted = "<ul>" + formatted + "</ul>";
+  formatted = formatted.replace(/^## (.*?)$/gm, "<h2>$1</h2>");
 
   return formatted;
 };

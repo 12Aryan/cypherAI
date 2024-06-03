@@ -74,12 +74,15 @@ const ChatContainer = () => {
                 <hr />
               </Flex>
             ) : (
-              <Text
-                fontSize={"17px"}
-                fontWeight={"300"}
-                lineHeight={1.8}
+              <pre
+              style={{
+                fontSize: "17px",
+                fontWeight: "300",
+                lineHeight: 1.8,
+              }}
+                
                 dangerouslySetInnerHTML={{ __html: aiResponse || "" }}
-              ></Text>
+              ></pre>
             )}
           </Flex>
         </Flex>
