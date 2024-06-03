@@ -1,5 +1,5 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
+import { useState } from "react";
 import { assets } from "../../../assets/assets";
 
 const Sidebar = () => {

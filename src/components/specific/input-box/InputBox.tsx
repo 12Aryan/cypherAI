@@ -1,5 +1,4 @@
 import { Box, Flex, Image, Input, Text } from "@chakra-ui/react";
-import React from "react";
 import { assets } from "../../../assets/assets";
 
 const InputBox = () => {

@@ -1,5 +1,4 @@
 import { Flex, Image, Text } from "@chakra-ui/react";
-import React from "react";
 import { assets } from "../../../assets/assets";
 
 const Navbar = () => {
