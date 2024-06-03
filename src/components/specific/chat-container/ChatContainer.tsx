@@ -13,6 +13,7 @@ const ChatContainer = () => {
   const aiResponse: string | null = useSelector(getAIResponse);
   const showResult: boolean = useSelector(getShowResult);
   const recentPrompt: string = useSelector(getRecentPrompt);
+  console.log(aiResponse);
   return (
     <Flex
       className="chat-container"
