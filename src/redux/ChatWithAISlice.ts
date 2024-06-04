@@ -2,15 +2,8 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../main-store/store";
 import run from "../config/gemini";
 import { formatResponse } from "../utils/GlobalUtils";
-
-interface ChatWithAIType {
-  aiResponse: string | null;
-  inputPrompt: string;
-  recentPrompt: string;
-  previousPrompts: Array<string>;
-  loading: boolean;
-  showResult: boolean;
-}
+import { ChatWithAIType } from "../types/ChatWithAITypes";
+import { hideToast, showToast } from "./SharedSlice";
 
 const initialState: ChatWithAIType = {
   inputPrompt: "",
@@ -23,9 +16,17 @@ const initialState: ChatWithAIType = {
 
 export const chatWithAI = createAsyncThunk(
   "chatWithAI/post",
-  async (prompt: string) => {
-    const response = await run(prompt);
-    return response;
+  async (prompt: string, { dispatch, rejectWithValue }) => {
+    try {
+      const response = await run(prompt);
+      return response;
+    } catch (error) {
+      dispatch(showToast());
+      setTimeout(() => {
+        dispatch(hideToast());
+      }, 5000);
+      return rejectWithValue(error);
+    }
   }
 );
 
@@ -65,6 +66,10 @@ const chatWithAISlice = createSlice({
         state.loading = false;
       }
     );
+    builder.addCase(chatWithAI.rejected, (state: any) => {
+      state.loading = false;
+      state.showResult = false;
+    });
   },
 });
 
