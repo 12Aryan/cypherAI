@@ -13,16 +13,18 @@ const Toaster = ({ toastMessage }: { toastMessage: string }) => {
       bg={"#F49B95"}
       color={"#E14035"}
       position={"absolute"}
-      zIndex={2}
-      right={"20px"}
-      top={"15px"}
+      zIndex={"999"}
+      right={"80px"}
+      top={"60px"}
       align={"center"}
       justify={"space-between"}
       p={"10px 16px"}
       gap={"15px"}
       borderRadius={"8px"}
+      boxShadow={"0px 1px 4px 0px #63657333"}
+      width={"400px"}
     >
-      <Flex>{toastMessage}</Flex>
+      <Flex color={"#E14035"}>{toastMessage}</Flex>
       <Flex
         cursor={"pointer"}
         fontSize={"28px"}

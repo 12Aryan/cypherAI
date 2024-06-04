@@ -9,7 +9,7 @@ const App = () => {
   const toaster = useSelector(getToast);
   return (
     <Flex position={"relative"}>
-      {toaster && <Toaster toastMessage="internal server error" />}
+      {toaster && <Toaster toastMessage="Internal server error" />}
       <Sidebar />
       <ChatWithAI />
     </Flex>
