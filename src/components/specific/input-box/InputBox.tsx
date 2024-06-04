@@ -76,12 +76,14 @@ const InputBox = () => {
               src={assets.gallery_icon}
             />
             <Image width={"24px"} cursor={"pointer"} src={assets.mic_icon} />
-            <Image
-              width={"24px"}
-              cursor={"pointer"}
-              src={assets.send_icon}
-              onClick={handleSendPrompt}
-            />
+            {inputPrompt && (
+              <Image
+                width={"24px"}
+                cursor={"pointer"}
+                src={assets.send_icon}
+                onClick={handleSendPrompt}
+              />
+            )}
           </Flex>
         </Flex>
         <Text

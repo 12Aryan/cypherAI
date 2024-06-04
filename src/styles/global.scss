@@ -8,6 +8,11 @@
 }
 #root {
   min-height: 100vh;
+  animation: fadeIn 1.5s;
+}
+
+.sidebar {
+  animation: fadeIn 1.5s; 
 }
 
 .sidebar img {
@@ -40,6 +45,15 @@
   background-size: 800px 50px;
   height: 20px;
   animation: loader 3s infinite linear;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes loader {
