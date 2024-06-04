@@ -15,13 +15,20 @@
 }
 
 .chat-container .greet span {
-  background-image: linear-gradient(16deg, #4b90ff, #ff5546);
-  background: --webkit-linear-gradient(16deg, #4b90ff, #ff5546);
+  background-image: linear-gradient(
+    #439ddf 0%,
+    #9476c5 78%,
+    #bc688e 89%,
+    #d6645d 100%,
+    #4587ed 52%
+  );
+  // background: --webkit-linear-gradient(16deg, #4b90ff, #ff5546);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.result::-webkit-scrollbar {
+.result::-webkit-scrollbar,
+.recent-chat-items::-webkit-scrollbar {
   display: none;
 }
 
@@ -34,8 +41,6 @@
   height: 20px;
   animation: loader 3s infinite linear;
 }
-
-
 
 @keyframes loader {
   0% {

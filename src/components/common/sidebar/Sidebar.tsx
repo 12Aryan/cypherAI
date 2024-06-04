@@ -1,12 +1,29 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { assets } from "../../../assets/assets";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  chatWithAI,
+  createNewChat,
+  getPreviousPrompts,
+} from "../../../redux/ChatWithAISlice";
+import { store } from "../../../main-store/store";
 
 const Sidebar = () => {
+  const dispatch = useDispatch<typeof store.dispatch>();
+  const previousPrompts = useSelector(getPreviousPrompts);
   const [collapseSidebar, setCollapseSidebar] = useState(false);
 
   const handleCollapseSidebar = () => {
     setCollapseSidebar(!collapseSidebar);
+  };
+
+  const handleSidebarPromptClick = (prompt: string) => {
+    dispatch(chatWithAI(prompt));
+  };
+
+  const handleNewChatClick = () => {
+    dispatch(createNewChat());
   };
 
   return (
@@ -38,6 +55,7 @@ const Sidebar = () => {
             borderRadius={"50px"}
             mt={"50%"}
             w={"100%"}
+            onClick={handleNewChatClick}
           >
             <Box>
               <Image src={assets.plus_icon} />
@@ -48,20 +66,33 @@ const Sidebar = () => {
             <Flex className="recent" direction={"column"}>
               <Flex m={"30px 0px 20px 0px"}>Recent</Flex>
               <Flex
-                className="recent-entry"
-                align={"center"}
-                gap={"10px"}
-                p={"10px"}
-                pr={"40px"}
-                borderRadius={"50px"}
-                color={"#282828"}
-                cursor={"pointer"}
-                _hover={{ bg: "#e2e2e2" }}
+                direction={"column"}
+                className="recent-chat-items"
+                maxH={"350px"}
+                overflowY={"auto"}
               >
-                <Box>
-                  <Image src={assets.message_icon} />
-                </Box>
-                <Text>{"What is react ..."}</Text>
+                {previousPrompts &&
+                  previousPrompts?.length > 0 &&
+                  previousPrompts?.map((prompt, index) => (
+                    <Flex
+                      key={index}
+                      className="recent-entry"
+                      align={"center"}
+                      gap={"10px"}
+                      p={"10px"}
+                      pr={"40px"}
+                      borderRadius={"50px"}
+                      color={"#282828"}
+                      cursor={"pointer"}
+                      _hover={{ bg: "#e2e2e2" }}
+                      onClick={() => handleSidebarPromptClick(prompt)}
+                    >
+                      <Box>
+                        <Image src={assets.message_icon} />
+                      </Box>
+                      <Text>{prompt.slice(0, 18)}...</Text>
+                    </Flex>
+                  ))}
               </Flex>
             </Flex>
           )}

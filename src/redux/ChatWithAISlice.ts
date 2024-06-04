@@ -16,7 +16,7 @@ const initialState: ChatWithAIType = {
   inputPrompt: "",
   previousPrompts: [],
   recentPrompt: "",
-  aiResponse: null,
+  aiResponse: "",
   loading: false,
   showResult: false,
 };
@@ -47,6 +47,10 @@ const chatWithAISlice = createSlice({
     },
     setPreviousPrompts: (state: any, action: PayloadAction<string>) => {
       state.previousPrompts = [...state.previousPrompts, action.payload];
+    },
+    createNewChat: (state: any) => {
+      state.loading = false;
+      state.showResult = false;
     },
   },
   extraReducers: (builder: any) => {
@@ -82,6 +86,7 @@ export const {
   setShowResult,
   setRecentPrompt,
   setPreviousPrompts,
+  createNewChat,
 } = chatWithAISlice.actions;
 
 export default chatWithAISlice.reducer;
