@@ -13,11 +13,11 @@ import { assets } from "../../../assets/assets";
 import { useTypingEffect } from "../../../hooks/UseTypingEffect";
 
 const ChatContainer = () => {
-  const aiResponse = useSelector(getAIResponse);
-  const showResult = useSelector(getShowResult);
-  const recentPrompt = useSelector(getRecentPrompt);
-  const loading = useSelector(getLoading);
-  const [aiResponseData, setAIResponseData] = useState("");
+  const aiResponse: string = useSelector(getAIResponse);
+  const showResult: boolean = useSelector(getShowResult);
+  const recentPrompt: string = useSelector(getRecentPrompt);
+  const loading: boolean = useSelector(getLoading);
+  const [aiResponseData, setAIResponseData] = useState<string>("");
 
   useEffect(() => {
     setAIResponseData(aiResponse || "");

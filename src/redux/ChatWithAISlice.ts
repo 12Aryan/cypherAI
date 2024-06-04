@@ -34,39 +34,42 @@ const chatWithAISlice = createSlice({
   name: "chatWithAI",
   initialState,
   reducers: {
-    setInputPrompt: (state: any, action: PayloadAction<string>) => {
+    setInputPrompt: (state: ChatWithAIType, action: PayloadAction<string>) => {
       state.inputPrompt = action.payload;
     },
-    emptyAIResponse: (state: any) => {
+    emptyAIResponse: (state: ChatWithAIType) => {
       state.aiResponse = "";
     },
-    setShowResult: (state: any, action: PayloadAction<boolean>) => {
+    setShowResult: (state: ChatWithAIType, action: PayloadAction<boolean>) => {
       state.showResult = action.payload;
     },
-    setRecentPrompt: (state: any, action: PayloadAction<string>) => {
+    setRecentPrompt: (state: ChatWithAIType, action: PayloadAction<string>) => {
       state.recentPrompt = action.payload;
     },
-    setPreviousPrompts: (state: any, action: PayloadAction<string>) => {
+    setPreviousPrompts: (
+      state: ChatWithAIType,
+      action: PayloadAction<string>
+    ) => {
       state.previousPrompts = [...state.previousPrompts, action.payload];
     },
-    createNewChat: (state: any) => {
+    createNewChat: (state: ChatWithAIType) => {
       state.loading = false;
       state.showResult = false;
     },
   },
-  extraReducers: (builder: any) => {
-    builder.addCase(chatWithAI.pending, (state: any) => {
+  extraReducers: (builder) => {
+    builder.addCase(chatWithAI.pending, (state: ChatWithAIType) => {
       state.loading = true;
     });
 
     builder.addCase(
       chatWithAI.fulfilled,
-      (state: any, action: PayloadAction<string>) => {
+      (state: ChatWithAIType, action: PayloadAction<string>) => {
         state.aiResponse = formatResponse(action.payload);
         state.loading = false;
       }
     );
-    builder.addCase(chatWithAI.rejected, (state: any) => {
+    builder.addCase(chatWithAI.rejected, (state: ChatWithAIType) => {
       state.loading = false;
       state.showResult = false;
     });

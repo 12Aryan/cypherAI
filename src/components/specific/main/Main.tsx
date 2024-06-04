@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react";
-import Navbar from "../common/navbar/Navbar";
-import ChatContainer from "../specific/chat-container/ChatContainer";
+import Navbar from "../../common/navbar/Navbar";
+import ChatContainer from "../chat-container/ChatContainer";
 
 const Main = () => {
   return (

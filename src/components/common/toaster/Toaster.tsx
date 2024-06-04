@@ -1,10 +1,11 @@
 import { Flex } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { hideToast } from "../../../redux/SharedSlice";
+import { store } from "../../../main-store/store";
 
-const Toaster = ({ toastMessage }: any) => {
-  const dispatch = useDispatch();
-  const handleToasterCloseClick = () => {
+const Toaster = ({ toastMessage }: { toastMessage: string }) => {
+  const dispatch = useDispatch<typeof store.dispatch>();
+  const handleToasterCloseClick = (): void => {
     dispatch(hideToast());
   };
   return (

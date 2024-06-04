@@ -1,6 +1,7 @@
 import { assets } from "../assets/assets";
+import { ChatCardType } from "../types/ChatCardTypes";
 
-export const chatCardsData: Array<any> = [
+export const chatCardsData: Array<ChatCardType> = [
   {
     id: 0,
     url: assets.compass_icon,

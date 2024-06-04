@@ -1,5 +1,5 @@
 export interface ChatWithAIType {
-  aiResponse: string | null;
+  aiResponse: string;
   inputPrompt: string;
   recentPrompt: string;
   previousPrompts: Array<string>;

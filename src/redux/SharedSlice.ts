@@ -10,14 +10,14 @@ export const SharedSlice = createSlice({
   name: "SharedSlice",
   initialState: initialState,
   reducers: {
-    showToast: (state: any) => {
+    showToast: (state: shareSliceType) => {
       state.toaster = true;
     },
-    hideToast: (state: any) => {
+    hideToast: (state: shareSliceType) => {
       state.toaster = false;
     },
   },
-  extraReducers: (builder) => {},
+  extraReducers: () => {},
 });
 
 export const getToast = (state: RootState) => state.SharedSlice.toaster;
