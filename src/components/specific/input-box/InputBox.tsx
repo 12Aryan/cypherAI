@@ -7,6 +7,7 @@ import {
   emptyAIResponse,
   getInputPrompt,
   setInputPrompt,
+  setPreviousPrompts,
   setRecentPrompt,
   setShowResult,
 } from "../../../redux/ChatWithAISlice";
@@ -22,6 +23,7 @@ const InputBox = () => {
     dispatch(emptyAIResponse());
     dispatch(setShowResult(true));
     dispatch(setRecentPrompt(inputPrompt));
+    dispatch(setPreviousPrompts(inputPrompt));
     dispatch(setInputPrompt(""));
     dispatch(chatWithAI(inputPrompt));
   };

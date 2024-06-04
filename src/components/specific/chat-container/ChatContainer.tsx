@@ -8,13 +8,23 @@ import {
   getShowResult,
 } from "../../../redux/ChatWithAISlice";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { assets } from "../../../assets/assets";
+import { useTypingEffect } from "../../../hooks/UseTypingEffect";
 
 const ChatContainer = () => {
-  const aiResponse: string | null = useSelector(getAIResponse);
-  const showResult: boolean = useSelector(getShowResult);
-  const recentPrompt: string = useSelector(getRecentPrompt);
-  const loading: boolean = useSelector(getLoading);
+  const aiResponse = useSelector(getAIResponse);
+  const showResult = useSelector(getShowResult);
+  const recentPrompt = useSelector(getRecentPrompt);
+  const loading = useSelector(getLoading);
+  const [aiResponseData, setAIResponseData] = useState("");
+
+  useEffect(() => {
+    setAIResponseData(aiResponse || "");
+  }, [aiResponse]);
+
+  const typedText = useTypingEffect(aiResponseData || "", 8);
+
   return (
     <Flex
       className="chat-container"
@@ -25,7 +35,6 @@ const ChatContainer = () => {
     >
       {!showResult ? (
         <>
-          {" "}
           <Flex
             className="greet"
             m={"50px 0px"}
@@ -36,7 +45,7 @@ const ChatContainer = () => {
             direction={"column"}
           >
             <Text as={"span"}>Hey, Dev.</Text>
-            <Text>How can i assist you today?</Text>
+            <Text>How can I assist you today?</Text>
           </Flex>
           <Box className="cards">
             <Card />
@@ -75,13 +84,14 @@ const ChatContainer = () => {
               </Flex>
             ) : (
               <pre
-              style={{
-                fontSize: "17px",
-                fontWeight: "300",
-                lineHeight: 1.8,
-              }}
-                
-                dangerouslySetInnerHTML={{ __html: aiResponse || "" }}
+                style={{
+                  fontSize: "17px",
+                  fontWeight: "300",
+                  lineHeight: 1.8,
+                  maxWidth: "900px",
+                  textWrap: "wrap",
+                }}
+                dangerouslySetInnerHTML={{ __html: typedText || "" }}
               ></pre>
             )}
           </Flex>

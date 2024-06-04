@@ -39,11 +39,14 @@ const chatWithAISlice = createSlice({
     emptyAIResponse: (state: any) => {
       state.aiResponse = "";
     },
-    setShowResult: (state: any, action) => {
+    setShowResult: (state: any, action: PayloadAction<boolean>) => {
       state.showResult = action.payload;
     },
-    setRecentPrompt: (state: any, action) => {
+    setRecentPrompt: (state: any, action: PayloadAction<string>) => {
       state.recentPrompt = action.payload;
+    },
+    setPreviousPrompts: (state: any, action: PayloadAction<string>) => {
+      state.previousPrompts = [...state.previousPrompts, action.payload];
     },
   },
   extraReducers: (builder: any) => {
@@ -54,8 +57,6 @@ const chatWithAISlice = createSlice({
     builder.addCase(
       chatWithAI.fulfilled,
       (state: any, action: PayloadAction<string>) => {
-        console.log(action.payload);
-
         state.aiResponse = formatResponse(action.payload);
         state.loading = false;
       }
@@ -72,12 +73,15 @@ export const getShowResult = (state: RootState) =>
 export const getRecentPrompt = (state: RootState) =>
   state.ChatWithAISlice.recentPrompt;
 export const getLoading = (state: RootState) => state.ChatWithAISlice.loading;
+export const getPreviousPrompts = (state: RootState) =>
+  state.ChatWithAISlice.previousPrompts;
 
 export const {
   setInputPrompt,
   emptyAIResponse,
   setShowResult,
   setRecentPrompt,
+  setPreviousPrompts,
 } = chatWithAISlice.actions;
 
 export default chatWithAISlice.reducer;
