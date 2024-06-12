@@ -12,6 +12,7 @@ const Main = () => {
         pb={"15vh"}
         position={"relative"}
         direction={"column"}
+        bg={'#0F1C2E'}
       >
         <Navbar />
         <ChatContainer />

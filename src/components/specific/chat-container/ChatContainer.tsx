@@ -32,6 +32,7 @@ const ChatContainer = () => {
       m={"0 auto auto"}
       direction={"column"}
       w={"100%"}
+      bg={'#0F1C2E'}
     >
       {!showResult ? (
         <>
@@ -40,16 +41,16 @@ const ChatContainer = () => {
           <Flex
             className="greet"
             m={{tablet: '2px 0px', laptop: '35px 0px', laptopL :"40px 0px"}}
-            fontSize={{ mobile :'30px',tablet : '40px' ,laptop: "52px", laptopL: '56px'}}
+            fontSize={{base: '20px', smMobile :'25px',mobile: '30px', tablet : '40px' ,laptop: "52px", laptopL: '56px'}}
             color={"#c4c7c5"}
             fontWeight={"500"}
             padding={"20px"}
             direction={"column"}
-            width={{ base: "100%", mobile: "70%", tablet: "70%", laptop: "100%" }}
+            width={{ base: "80%", mobile: "70%", tablet: "70%", laptop: "100%" }}
 
           >
             <Text as={"span"}>Hey, Dev.</Text>
-            <Text>How can I assist you today?</Text>
+            <Text color={'#acc2ef'}>How can I assist you today?</Text>
           </Flex>
         </Flex>
           <Flex justify={'center'} className="cards" w={'100%'}>
@@ -92,9 +93,10 @@ const ChatContainer = () => {
                 style={{
                   fontSize: "17px",
                   fontWeight: "300",
-                  lineHeight: 1.8,
+                  lineHeight: 1.6,
                   maxWidth: "900px",
                   textWrap: "wrap",
+                  color: "#c4d6fb",
                 }}
                 dangerouslySetInnerHTML={{ __html: typedText || "" }}
               ></pre>

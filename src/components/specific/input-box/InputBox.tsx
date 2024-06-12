@@ -44,13 +44,14 @@ const InputBox = () => {
         maxW={"900px"}
         p={"0px 20px"}
         margin={"auto"}
+        bg={"#0F1C2E"}
       >
         <Flex
           className="input-box"
           align={"center"}
           justifyContent={"space-between"}
           gap={"20px"}
-          bg={"#f0f4f9"}
+          bg={"#1f2b3e"}
           p={"10px 20px"}
           borderRadius={"50px"}
         >
@@ -68,6 +69,7 @@ const InputBox = () => {
             p={"8px"}
             placeholder="Enter a prompt here"
             _focusVisible={{ border: "none !important", outline: "none" }}
+            color={'#c4d6fb'}
           />
           <Flex align={"center"} gap={"15px"}>
             <Image

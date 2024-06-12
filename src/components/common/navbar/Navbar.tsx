@@ -9,9 +9,10 @@ const Navbar = () => {
       justify={"space-between"}
       fontSize={"22px"}
       padding={"20px"}
-      color={"#585858"}
+      color={"#c4d6fb"}
       w={"100%"}
       h={"80px"}
+      bg={"#0F1C2E"}
     >
       <Text>Cypher</Text>
       <Image
