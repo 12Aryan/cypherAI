@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import {  Flex, Image, Text } from "@chakra-ui/react";
 import Card from "../../common/card/Card";
 import InputBox from "../input-box/InputBox";
 import {
@@ -29,27 +29,32 @@ const ChatContainer = () => {
     <Flex
       className="chat-container"
       maxW={"900px"}
-      m={"auto"}
+      m={"0 auto auto"}
       direction={"column"}
       w={"100%"}
     >
       {!showResult ? (
         <>
+        <Flex justify={'center'} width={'100%'}>
+
           <Flex
             className="greet"
-            m={"50px 0px"}
-            fontSize={"56px"}
+            m={{tablet: '2px 0px', laptop: '35px 0px', laptopL :"40px 0px"}}
+            fontSize={{ mobile :'30px',tablet : '40px' ,laptop: "52px", laptopL: '56px'}}
             color={"#c4c7c5"}
             fontWeight={"500"}
             padding={"20px"}
             direction={"column"}
+            width={{ base: "100%", mobile: "70%", tablet: "70%", laptop: "100%" }}
+
           >
             <Text as={"span"}>Hey, Dev.</Text>
             <Text>How can I assist you today?</Text>
           </Flex>
-          <Box className="cards">
+        </Flex>
+          <Flex justify={'center'} className="cards" w={'100%'}>
             <Card />
-          </Box>
+          </Flex>
         </>
       ) : (
         <Flex

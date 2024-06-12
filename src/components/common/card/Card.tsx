@@ -1,15 +1,18 @@
-import { Flex, Image, Text } from "@chakra-ui/react";
+import { SimpleGrid, Flex, Image, Text } from "@chakra-ui/react";
 import { chatCardsData } from "../../../global-data/GlobalData";
 
 const Card = () => {
   return (
-    <Flex gap="15px" padding="20px">
+    <SimpleGrid
+      columns={{ base: 1, mobile: 1, tablet: 2, laptop: 4 }}
+      spacing="15px"
+      padding="20px"
+      width={{ base: "100%", mobile: "70%", tablet: "70%", laptop: "100%" }}
+    >
       {chatCardsData &&
-        chatCardsData?.length &&
-        chatCardsData?.map((chatCard, index) => (
+        chatCardsData.length &&
+        chatCardsData.map((chatCard, index) => (
           <Flex
-            flex={1}
-            className="card"
             key={index}
             h={"200px"}
             p={"15px"}
@@ -17,7 +20,6 @@ const Card = () => {
             borderRadius={"10px"}
             position={"relative"}
             cursor={"pointer"}
-            // border={"1px solid red"}
             direction={"column"}
             _hover={{ bg: "#dfe4ea" }}
           >
@@ -35,7 +37,7 @@ const Card = () => {
             </Flex>
           </Flex>
         ))}
-    </Flex>
+    </SimpleGrid>
   );
 };
 
