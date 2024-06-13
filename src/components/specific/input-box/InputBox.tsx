@@ -11,6 +11,9 @@ import {
   setRecentPrompt,
   setShowResult,
 } from "../../../redux/ChatWithAISlice";
+import { PiMicrophoneBold } from "react-icons/pi";
+import { IoSend } from "react-icons/io5";
+import { TbPhoto } from "react-icons/tb";
 
 const InputBox = () => {
   const dispatch = useDispatch<typeof store.dispatch>();
@@ -69,22 +72,19 @@ const InputBox = () => {
             p={"8px"}
             placeholder="Enter a prompt here"
             _focusVisible={{ border: "none !important", outline: "none" }}
-            color={'#c4d6fb'}
+            color={"#c4d6fb"}
           />
           <Flex align={"center"} gap={"15px"}>
-            <Image
-              width={"24px"}
-              cursor={"pointer"}
-              src={assets.gallery_icon}
-            />
-            <Image width={"24px"} cursor={"pointer"} src={assets.mic_icon} />
+            <Box cursor={'pointer'} onClick={()=>{}} title="Currently inactive">
+              <TbPhoto size={"20px"} color="#9dabc7" />
+            </Box>
+            <Box cursor={'pointer'} onClick={()=>{}} title="Currently inactive">
+              <PiMicrophoneBold size={"20px"} color="#9dabc7" />
+            </Box>
             {inputPrompt && (
-              <Image
-                width={"24px"}
-                cursor={"pointer"}
-                src={assets.send_icon}
-                onClick={handleSendPrompt}
-              />
+              <Box cursor={'pointer'} onClick={handleSendPrompt}>
+                <IoSend size={"18px"} color="#9dabc7" />
+              </Box>
             )}
           </Flex>
         </Flex>

@@ -1,6 +1,6 @@
 export default {
   null: "0",
-  smMobile: "360px",
+  smMobile: "320px",
   mobile: "520px",
   tablet: "768px",
   laptop: "1024px",

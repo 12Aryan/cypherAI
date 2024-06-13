@@ -14,7 +14,13 @@ const Navbar = () => {
       h={"80px"}
       bg={"#0F1C2E"}
     >
-      <Text>Cypher</Text>
+      <Text ml={{ smMobile: "40px",
+          mobile: "45px",
+          tablet: "0",
+          laptop: "0",
+          laptopL: "0",
+          desktop: "0",
+          desktopL: "0",}}>Cypher</Text>
       <Image
         h={"40px"}
         w={"40px"}
