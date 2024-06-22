@@ -42,7 +42,7 @@ const InputBox = () => {
       <Box
         className="main-bottom"
         position={"absolute"}
-        bottom={0}
+        bottom={{ smMobile: "-50px", mobile: "-25px", tablet: 0 }}
         w={"100%"}
         maxW={"900px"}
         p={"0px 20px"}
