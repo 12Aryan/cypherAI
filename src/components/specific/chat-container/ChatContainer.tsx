@@ -49,7 +49,7 @@ const ChatContainer = () => {
             width={{ base: "80%", mobile: "70%", tablet: "70%", laptop: "100%" }}
 
           >
-            <Text as={"span"}>Hey, Dev.</Text>
+            <Text as={"span"}>Hey, there!</Text>
             <Text color={'#acc2ef'}>How can I assist you today?</Text>
           </Flex>
         </Flex>

@@ -22,7 +22,7 @@ const Toaster = ({ toastMessage }: { toastMessage: string }) => {
       gap={"15px"}
       borderRadius={"8px"}
       boxShadow={"0px 1px 4px 0px #63657333"}
-      width={"400px"}
+      width={{ smMobile: "220px", tablet: "350px" }}
     >
       <Flex color={"#E14035"}>{toastMessage}</Flex>
       <Flex
