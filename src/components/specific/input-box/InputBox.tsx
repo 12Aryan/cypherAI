@@ -75,14 +75,22 @@ const InputBox = () => {
             color={"#c4d6fb"}
           />
           <Flex align={"center"} gap={"15px"}>
-            <Box cursor={'pointer'} onClick={()=>{}} title="Currently inactive">
+            <Box
+              cursor={"pointer"}
+              onClick={() => {}}
+              title="Currently inactive"
+            >
               <TbPhoto size={"20px"} color="#9dabc7" />
             </Box>
-            <Box cursor={'pointer'} onClick={()=>{}} title="Currently inactive">
+            <Box
+              cursor={"pointer"}
+              onClick={() => {}}
+              title="Currently inactive"
+            >
               <PiMicrophoneBold size={"20px"} color="#9dabc7" />
             </Box>
             {inputPrompt && (
-              <Box cursor={'pointer'} onClick={handleSendPrompt}>
+              <Box cursor={"pointer"} onClick={handleSendPrompt}>
                 <IoSend size={"18px"} color="#9dabc7" />
               </Box>
             )}
@@ -93,6 +101,7 @@ const InputBox = () => {
           m={"15px auto"}
           textAlign={"center"}
           fontWeight={"300"}
+          color={"#9dabc7"}
         >
           Cypher is evolving everyday, it may display inaccurate info sometimes,
           do cross check with other trusted sources

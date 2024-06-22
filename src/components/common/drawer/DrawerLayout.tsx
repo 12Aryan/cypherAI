@@ -75,7 +75,7 @@ DrawerLayoutProps) => {
                   color={"grey"}
                   cursor={"pointer"}
                   borderRadius={"50px"}
-                  mt={"50%"}
+                  mt={"25%"}
                   w={"100%"}
                   onClick={() => {
                     handleNewChatClick();

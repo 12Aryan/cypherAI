@@ -74,7 +74,7 @@ const Sidebar = () => {
               color={"grey"}
               cursor={"pointer"}
               borderRadius={"50px"}
-              mt={"50%"}
+              mt={collapseSidebar ? "15%" : "50%  "}
               w={"100%"}
               onClick={handleNewChatClick}
             >
