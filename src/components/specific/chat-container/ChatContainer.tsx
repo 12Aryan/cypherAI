@@ -73,7 +73,7 @@ const ChatContainer = () => {
             gap={"20px"}
           >
             <Image w={"40px"} borderRadius={"50%"} src={assets.user_icon} />
-            <Text>{recentPrompt}</Text>
+            <Text color={'#c4d6fb'}  >{recentPrompt}</Text>
           </Flex>
           <Flex className="result-data" align={"start"} gap={"20px"}>
             <Image h={"25px"} w={"25px"} src={assets.gemini_icon} />

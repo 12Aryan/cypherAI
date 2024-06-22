@@ -8,12 +8,16 @@ export const useTypingEffect = (text: string, speed = 10) => {
     setDisplayedText("");
 
     const intervalId = setInterval(() => {
-      if (index < text.length) {
-        setDisplayedText((prev: string) => prev + text[index]);
-        index++;
-      } else {
-        clearInterval(intervalId);
-      }
+      setDisplayedText((prev: string) => {
+        if (index < text.length) {
+          const nextChar = text[index];
+          index++;
+          return prev + nextChar;
+        } else {
+          clearInterval(intervalId);
+          return prev; 
+        }
+      });
     }, speed);
 
     return () => clearInterval(intervalId);

@@ -10,7 +10,7 @@ export const chatCardsData: Array<ChatCardType> = [
   {
     id: 1,
     url: assets.bulb_icon,
-    title: "Briefly summarize this concept: urban planning",
+    title: "Briefly summarize this concept: End to End testing",
   },
   {
     id: 2,
@@ -20,6 +20,6 @@ export const chatCardsData: Array<ChatCardType> = [
   {
     id: 3,
     url: assets.code_icon,
-    title: "Improve the readibility of following code",
+    title: "Suggest me some websites to practice Javascript",
   },
 ];

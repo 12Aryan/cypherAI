@@ -45,7 +45,9 @@ async function run(prompt: string) {
     history: [],
   });
 
-  const result = await chatSession.sendMessage(prompt);
+  const result = await chatSession.sendMessage(
+    `*instructions: Reply in mean tone and with a bit of spice-* ${prompt}`
+  );
   return result.response.text();
 }
 

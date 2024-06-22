@@ -55,11 +55,6 @@ const Sidebar = () => {
       >
         <Flex direction={"column"}>
           <Flex className="collapse-sidebar" pl={"10px"}>
-            {/* <Image
-            src={assets.menu_icon}
-            onClick={handleCollapseSidebar}
-            cursor={"pointer"}
-          /> */}
             <Box onClick={handleCollapseSidebar} cursor={"pointer"}>
               <SlMenu color="#9dabc7" size={"20px"} />
             </Box>
@@ -110,9 +105,9 @@ const Sidebar = () => {
                         _hover={{ bg: "#374357" }}
                         onClick={() => handleSidebarPromptClick(prompt)}
                       >
-                        <Box>
+                        <Flex alignSelf={"baseline"}>
                           <TiMessage color={"#9dabc7"} size={"24px"} />
-                        </Box>
+                        </Flex>
                         <Text color={"#9dabc7"}>{prompt.slice(0, 18)}...</Text>
                       </Flex>
                     ))}
