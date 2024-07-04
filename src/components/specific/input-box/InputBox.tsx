@@ -1,5 +1,4 @@
-import { Box, Flex, Image, Input, Text } from "@chakra-ui/react";
-import { assets } from "../../../assets/assets";
+import { Box, Flex, Input, Text } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { store } from "../../../main-store/store";
 import {

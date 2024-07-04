@@ -3,14 +3,13 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  DrawerHeader,
   DrawerBody,
   Drawer,
   Box,
   Flex,
   Text,
 } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import React from "react";
 import { HiOutlinePlus } from "react-icons/hi";
 import { MdOutlineHelpOutline, MdOutlineHistory } from "react-icons/md";
 import { RiSettings3Line } from "react-icons/ri";
