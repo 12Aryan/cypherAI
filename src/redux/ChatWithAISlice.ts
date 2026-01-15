@@ -19,6 +19,7 @@ export const chatWithAI = createAsyncThunk(
   async (prompt: string, { dispatch, rejectWithValue }) => {
     try {
       const response = await run(prompt);
+
       return response;
     } catch (error) {
       dispatch(showToast());
